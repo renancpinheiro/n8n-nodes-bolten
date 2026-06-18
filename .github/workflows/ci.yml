@@ -1,4 +1,4 @@
-﻿name: CI
+name: CI
 
 on:
   push:
@@ -16,6 +16,6 @@ jobs:
         with:
           node-version: "20"
 
-      - run: npm install --no-package-lock
+      - run: npm install --no-package-lock --ignore-scripts
       - run: npm run lint
       - run: npm run build

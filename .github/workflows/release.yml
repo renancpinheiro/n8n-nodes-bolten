@@ -1,4 +1,4 @@
-﻿name: Release
+name: Release
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
-        run: npm install --no-package-lock
+        run: npm install --no-package-lock --ignore-scripts
 
       - name: Run lint
         run: npm run lint

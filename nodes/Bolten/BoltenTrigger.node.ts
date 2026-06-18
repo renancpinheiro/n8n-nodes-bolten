@@ -62,7 +62,7 @@ export class BoltenTrigger implements INodeType {
           },
         ],
         default: [],
-        description: 'Event types to listen to. Leave empty to receive all events',
+        description: 'Event types to listen to. Leave empty to receive all events.',
       },
     ],
   };

@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-bolten",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "n8n community node for the Bolten platform (CRM, WhatsApp and AI)",
   "keywords": [
     "n8n-community-node-package",

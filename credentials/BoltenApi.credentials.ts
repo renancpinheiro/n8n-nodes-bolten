@@ -8,7 +8,7 @@ import {
 export class BoltenApi implements ICredentialType {
   name = 'boltenApi';
   displayName = 'Bolten API';
-  documentationUrl = 'https://docs.bolten.io/api/authentication';
+  documentationUrl = 'https://bolten.gitbook.io/bolten-docs/configuracoes-avancadas/api';
   properties: INodeProperties[] = [
     {
       displayName: 'API Key',

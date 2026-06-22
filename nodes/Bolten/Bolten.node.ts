@@ -214,24 +214,24 @@ async function handleOpportunity(
     return req(this, 'GET', `${apiBase}/opportunities`, undefined, { page, limit });
   }
 
-  const opportunityId = operation !== 'getSchema'
-    ? this.getNodeParameter('opportunityId', i) as string
-    : '';
+  if (operation === 'create') {
+    return req(this, 'POST', `${apiBase}/opportunities`, { attributes: buildAttributes(this, i) });
+  }
+
+  if (operation === 'getSchema') {
+    return req(this, 'GET', `${apiBase}/schema`);
+  }
+
+  const opportunityId = this.getNodeParameter('opportunityId', i) as string;
 
   if (operation === 'get') {
     return req(this, 'GET', `${apiBase}/opportunities/${opportunityId}`);
-  }
-  if (operation === 'create') {
-    return req(this, 'POST', `${apiBase}/opportunities`, { attributes: buildAttributes(this, i) });
   }
   if (operation === 'update') {
     return req(this, 'PATCH', `${apiBase}/opportunities/${opportunityId}`, { attributes: buildAttributes(this, i) });
   }
   if (operation === 'delete') {
     return req(this, 'DELETE', `${apiBase}/opportunities/${opportunityId}`);
-  }
-  if (operation === 'getSchema') {
-    return req(this, 'GET', `${apiBase}/schema`);
   }
 
   // ── contact association ───────────────────────────────────────────────────

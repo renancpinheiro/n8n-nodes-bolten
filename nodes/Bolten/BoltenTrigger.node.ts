@@ -30,7 +30,7 @@ export class BoltenTrigger implements INodeType {
     properties: [
       {
         displayName:
-          'Copy the <strong>Webhook URL</strong> shown below and register it in your Bolten project under <strong>Configurações › Integrações › Webhooks</strong>. No authentication is required on the n8n side.',
+          'Copy the <strong>Webhook URL</strong> shown below and register it in your Bolten project under <strong>Settings › Integrations › Webhooks</strong>. No authentication is required on the n8n side.',
         name: 'notice',
         type: 'notice',
         default: '',

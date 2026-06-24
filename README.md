@@ -90,7 +90,7 @@ Use the **Get Schema** operation to discover the available attribute names for y
 You need a Bolten API key. To obtain one:
 
 1. Log in to your Bolten workspace at [app.bolten.io](https://app.bolten.io)
-2. Navigate to **Configurações → Integrações → API**
+2. Navigate to **Settings → Integrations → API**
 3. Generate a new API key
 4. In n8n, create a new **Bolten API** credential and paste the key
 
@@ -112,7 +112,7 @@ The **Bolten Trigger** node receives webhook events from your Bolten workspace.
 1. Add a **Bolten Trigger** node to your workflow
 2. Activate the workflow to get the production webhook URL
 3. Copy the **Webhook URL** shown in the node
-4. In Bolten, go to **Configurações → Integrações → Webhooks**
+4. In Bolten, go to **Settings → Integrations → Webhooks**
 5. Register the URL and select the events you want to receive
 6. Save — your workflow will now fire on each matching event
 

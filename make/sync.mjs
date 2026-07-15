@@ -46,7 +46,9 @@ const MODULE_TYPE_IDS = {
 
 const manifest = JSON.parse(await readFile(path.join(ROOT, 'manifest.json'), 'utf8'));
 const metadata = JSON.parse(await readFile(path.join(APP_DIR, 'metadata.json'), 'utf8'));
-const APP_NAME = metadata.name;
+// Make appends a random suffix to app names (e.g. bolten-l1u5uk). After the
+// first --create run, pass the generated name via MAKE_APP_NAME.
+let APP_NAME = process.env.MAKE_APP_NAME ?? metadata.name;
 
 async function call(method, url, body, contentType = 'application/json') {
   const res = await fetch(`${BASE}${url}`, {
@@ -78,10 +80,10 @@ async function putSection(url, filePath) {
 }
 
 // ── 1. App ────────────────────────────────────────────────────────────────────
-if (CREATE) {
+if (CREATE && !process.env.MAKE_APP_NAME) {
   console.log('Creating app…');
-  await call('POST', '/sdk/apps', {
-    name: APP_NAME,
+  const created = await call('POST', '/sdk/apps', {
+    name: metadata.name,
     label: metadata.label,
     description: metadata.description,
     theme: metadata.theme,
@@ -89,6 +91,8 @@ if (CREATE) {
     countries: metadata.countries ?? [],
     audience: 'countries',
   });
+  APP_NAME = created?.app?.name ?? APP_NAME;
+  console.log(`  app name: ${APP_NAME}`);
 }
 
 console.log('Base…');
@@ -122,7 +126,7 @@ for (const wh of manifest.webhooks) {
   let whName = process.env[`MAKE_WEBHOOK_${wh.name.replaceAll('-', '_').toUpperCase()}`];
   if (CREATE) {
     const created = await call('POST', `/sdk/apps/${APP_NAME}/webhooks`, {
-      type: wh.type,
+      type: wh.type === 'dedicated' ? 'web' : 'web-shared',
       label: wh.label,
       connection: wh.connection ? connectionName : null,
     });

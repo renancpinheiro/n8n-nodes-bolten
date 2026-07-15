@@ -5,6 +5,9 @@
         "authorization": "Bearer {{parameters.apiKey}}"
     },
     "response": {
+        "data": {
+            "apiKey": "{{parameters.apiKey}}"
+        },
         "error": {
             "message": "[{{statusCode}}] Invalid API key. Generate a key in Bolten under Settings › Advanced Settings › API."
         }

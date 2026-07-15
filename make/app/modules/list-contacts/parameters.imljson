@@ -12,7 +12,7 @@
                     "type": "select",
                     "label": "Contact Component",
                     "required": true,
-                    "options": "rpc://listComponents"
+                    "options": "rpc://listComponents?category=contact_management"
                 }
             ]
         }

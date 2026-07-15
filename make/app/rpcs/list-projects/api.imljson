@@ -2,7 +2,7 @@
     "url": "/clients/api/v1/projects",
     "method": "GET",
     "response": {
-        "iterate": "{{body}}",
+        "iterate": "{{body.items}}",
         "output": {
             "label": "{{item.name}}",
             "value": "{{item.id}}"

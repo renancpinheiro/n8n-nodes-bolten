@@ -48,31 +48,55 @@ Each folder maps 1:1 to a section in Make's Custom Apps editor (web UI tabs or t
 UX improvement over the n8n node: `Project` and `Component` are **dynamic dropdowns**
 (nested selects fed by the two RPCs) instead of free-text IDs.
 
-## How to get this into Make
+## How to get this into Make (via API)
 
-1. Create the app: Make → **Custom apps** → *Create a new app* (name `bolten`, label `Bolten`,
-   theme `#2563EB` — confirm against brand guidelines), or use the
-   [Make Apps Editor VS Code extension](https://developers.make.com/custom-apps-documentation/make-apps-editor)
-   with a Make API token (scopes `sdk-apps:read` + `sdk-apps:write`) and paste each file
-   into the corresponding section.
-2. Upload the logo: square PNG, 512×512 to 2048×2048, ≤512 kB
-   ([spec](https://developers.make.com/custom-apps-documentation/app-logo)). White/transparent
-   areas render in the theme color.
-3. Create the connection, RPCs, webhook, then the 22 modules (types per the table above).
-4. Test with a real Bolten workspace API key.
+`sync.mjs` pushes everything in `app/` to Make's SDK Apps API, driven by `manifest.json`
+(module names, labels, types, CRUD). Node 18+, no dependencies:
+
+```bash
+# 1. Get a Make API token: Make → Profile → API/MCP access,
+#    with scopes sdk-apps:read + sdk-apps:write.
+# 2. First run creates the app, connection, webhook, RPCs and all 22 modules:
+MAKE_API_TOKEN=xxx MAKE_ZONE=us1 node make/sync.mjs --create
+# 3. Subsequent runs just re-upload the JSON sections:
+MAKE_API_TOKEN=xxx MAKE_ZONE=us1 node make/sync.mjs
+```
+
+`MAKE_ZONE` is the zone in your Make URL (`eu1`, `us1`, …). The endpoint shapes follow the
+[SDK Apps section of the Make API docs](https://developers.make.com/api-documentation) — if a
+path 404s, cross-check there (this API changes occasionally). Alternative paths that use the
+same files: the [Make Apps Editor VS Code extension](https://developers.make.com/custom-apps-documentation/make-apps-editor)
+(same API token) or copy-pasting each file into the matching tab of the web editor.
+
+Then in Make:
+
+1. Upload the logo: square PNG, 512×512 to 2048×2048, ≤512 kB
+   ([spec](https://developers.make.com/custom-apps-documentation/app-logo)). Note the inversion:
+   **black renders as white, and white/transparent renders in the theme color** — so the black
+   "b" on white becomes a white "b" on Bolten orange (`#FF6828`).
+2. Test every module with a real Bolten workspace API key.
+
+## API response shapes (confirmed against docs.bolten)
+
+Per the [Bolten API docs](https://bolten.gitbook.io/bolten-docs/configuracoes-avancadas/api):
+list endpoints return `{ items: [...], pagination: { page, limit, total } }`; errors return
+`{ code, path, method, message, timestamp, details }`. Components carry a `category`
+(`contact_management`, `opportunity_management`, …), which the `listComponents` RPC uses to
+filter the Component dropdown per module (`rpc://listComponents?category=...`).
 
 ## Known TODOs before submitting for review
 
-- [ ] **Verify RPC response shapes**: `rpcs/list-projects` and `rpcs/list-components` assume the
-      endpoints return an array of `{ id, name }`. Adjust `iterate`/`output` to the real payload.
 - [ ] **Webhook `condition` filter**: confirm Make accepts the `condition` directive in the
       webhook communication for event filtering; otherwise move filtering into the trigger module.
+- [ ] **RPC category filter syntax**: confirm the `iterate.condition` equality operator (`=`)
+      against a live app; adjust if the editor's linter complains.
 - [ ] **Samples**: generate output samples for every module in the editor ("Generate from response").
 - [ ] **Interfaces**: fill in output interfaces (at least for the searches and CRUD actions) so
       downstream mapping panels show typed fields.
-- [ ] **Dynamic attribute fields (nice-to-have)**: the contact/opportunity `schema` endpoints could
-      feed an RPC that renders real mappable fields instead of the key/value `attributes` array.
-- [ ] Logo asset (512×512+ PNG) and final theme color.
+- [ ] **Dynamic attribute fields (nice-to-have)**: `GET .../schema` returns
+      `{ attributes: [{ name, content_type, available_values, ... }] }` — perfect to feed an RPC
+      that renders real mappable fields instead of the key/value `attributes` array.
+- [ ] Export the logo as PNG ≥512×512, ≤512 kB (black mark, white or transparent background).
 
 ## Verification (app review) checklist
 

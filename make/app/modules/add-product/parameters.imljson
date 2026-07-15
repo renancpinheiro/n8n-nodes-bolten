@@ -12,7 +12,7 @@
                     "type": "select",
                     "label": "Kanban Component",
                     "required": true,
-                    "options": "rpc://listComponents"
+                    "options": "rpc://listComponents?category=opportunity_management"
                 }
             ]
         }

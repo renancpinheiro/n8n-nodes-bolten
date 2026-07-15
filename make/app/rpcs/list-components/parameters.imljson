@@ -4,5 +4,12 @@
         "type": "text",
         "label": "Project ID",
         "required": true
+    },
+    {
+        "name": "category",
+        "type": "text",
+        "label": "Component Category",
+        "required": false,
+        "help": "Optional filter, e.g. contact_management or opportunity_management. Passed via the rpc:// query string."
     }
 ]

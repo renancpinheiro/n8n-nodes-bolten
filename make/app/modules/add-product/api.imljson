@@ -1,0 +1,12 @@
+{
+    "url": "/kanban/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/products",
+    "method": "POST",
+    "body": {
+        "product_id": "{{parameters.productId}}",
+        "quantity": "{{parameters.quantity}}",
+        "final_price": "{{if(parameters.finalPrice > 0, parameters.finalPrice, undefined)}}"
+    },
+    "response": {
+        "output": "{{body}}"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "url": "/kanban/api/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/contact",
+    "method": "POST",
+    "body": {
+        "id": "{{parameters.contactId}}"
+    },
+    "response": {
+        "output": "{{body}}"
+    }
+}

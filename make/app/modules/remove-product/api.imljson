@@ -1,0 +1,7 @@
+{
+    "url": "/kanban/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/products/{{parameters.itemId}}",
+    "method": "DELETE",
+    "response": {
+        "output": "{{body}}"
+    }
+}

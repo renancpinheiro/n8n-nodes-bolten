@@ -1,0 +1,12 @@
+{
+    "respond": {
+        "status": 200,
+        "type": "json",
+        "body": {
+            "ok": true
+        }
+    },
+    "condition": "{{if(length(parameters.events) > 0, contains(parameters.events, body.type), true)}}",
+    "iterate": "{{[body]}}",
+    "output": "{{item}}"
+}

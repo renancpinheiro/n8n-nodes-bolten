@@ -1,0 +1,8 @@
+[
+    {
+        "name": "projectId",
+        "type": "text",
+        "label": "Project ID",
+        "required": true
+    }
+]

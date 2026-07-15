@@ -1,0 +1,13 @@
+[
+    {
+        "name": "type",
+        "type": "text",
+        "label": "Event Type"
+    },
+    {
+        "name": "data",
+        "type": "collection",
+        "label": "Event Data",
+        "spec": []
+    }
+]

@@ -1,0 +1,28 @@
+[
+    {
+        "name": "opportunityId",
+        "type": "text",
+        "label": "Opportunity ID",
+        "required": true
+    },
+    {
+        "name": "productId",
+        "type": "text",
+        "label": "Product ID",
+        "required": true
+    },
+    {
+        "name": "quantity",
+        "type": "uinteger",
+        "label": "Quantity",
+        "required": true,
+        "default": 1
+    },
+    {
+        "name": "finalPrice",
+        "type": "number",
+        "label": "Final Price",
+        "required": false,
+        "help": "Overrides the product's default price. Leave empty to use the default price."
+    }
+]

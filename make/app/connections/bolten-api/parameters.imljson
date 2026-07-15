@@ -1,0 +1,9 @@
+[
+    {
+        "name": "apiKey",
+        "type": "password",
+        "label": "API Key",
+        "required": true,
+        "help": "Generate an API key in Bolten under **Settings › Advanced Settings › API**. Docs: https://bolten.gitbook.io/bolten-docs/configuracoes-avancadas/api"
+    }
+]

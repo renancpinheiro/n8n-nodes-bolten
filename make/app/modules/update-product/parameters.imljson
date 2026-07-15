@@ -1,0 +1,20 @@
+[
+    {
+        "name": "projectId",
+        "type": "select",
+        "label": "Project",
+        "required": true,
+        "options": {
+            "store": "rpc://listProjects",
+            "nested": [
+                {
+                    "name": "componentId",
+                    "type": "select",
+                    "label": "Kanban Component",
+                    "required": true,
+                    "options": "rpc://listComponents"
+                }
+            ]
+        }
+    }
+]

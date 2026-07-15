@@ -1,0 +1,8 @@
+[
+    {
+        "name": "opportunityId",
+        "type": "text",
+        "label": "Opportunity ID",
+        "required": true
+    }
+]

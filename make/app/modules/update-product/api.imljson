@@ -1,0 +1,12 @@
+{
+    "url": "/kanban/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/products/{{parameters.itemId}}",
+    "method": "PUT",
+    "body": {
+        "quantity": "{{parameters.quantity}}",
+        "product_id": "{{if(parameters.productId, parameters.productId, undefined)}}",
+        "final_price": "{{if(parameters.finalPrice > 0, parameters.finalPrice, undefined)}}"
+    },
+    "response": {
+        "output": "{{body}}"
+    }
+}

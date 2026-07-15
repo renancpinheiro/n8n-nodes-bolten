@@ -1,0 +1,8 @@
+{
+    "name": "bolten",
+    "label": "Bolten",
+    "description": "Bolten is a CRM, WhatsApp and AI platform. Manage contacts, opportunities, products and tasks, and react to opportunity events in real time.",
+    "theme": "#2563EB",
+    "language": "en",
+    "countries": ["br", "pt"]
+}

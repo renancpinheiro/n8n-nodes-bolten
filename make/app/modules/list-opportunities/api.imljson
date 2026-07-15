@@ -1,0 +1,19 @@
+{
+    "url": "/kanban/api/v1/{{parameters.componentId}}/opportunities",
+    "method": "GET",
+    "qs": {
+        "page": 1,
+        "limit": 100
+    },
+    "response": {
+        "iterate": "{{body.items}}",
+        "output": "{{item}}",
+        "limit": "{{parameters.limit}}"
+    },
+    "pagination": {
+        "qs": {
+            "page": "{{pagination.page}}"
+        },
+        "condition": "{{body.items.length > 0}}"
+    }
+}

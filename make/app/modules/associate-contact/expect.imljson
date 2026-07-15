@@ -1,0 +1,15 @@
+[
+    {
+        "name": "opportunityId",
+        "type": "text",
+        "label": "Opportunity ID",
+        "required": true
+    },
+    {
+        "name": "contactId",
+        "type": "text",
+        "label": "Contact ID",
+        "required": true,
+        "help": "ID of the contact to link to the opportunity."
+    }
+]

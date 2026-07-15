@@ -1,0 +1,9 @@
+{
+    "url": "/clients/api/v1/projects",
+    "method": "GET",
+    "response": {
+        "iterate": "{{body}}",
+        "output": "{{item}}",
+        "limit": "{{parameters.limit}}"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "url": "/kanban/api/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}",
+    "method": "GET",
+    "response": {
+        "output": "{{body}}"
+    }
+}

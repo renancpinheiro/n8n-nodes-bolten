@@ -1,0 +1,16 @@
+{
+    "baseUrl": "https://app.bolten.io",
+    "headers": {
+        "authorization": "Bearer {{connection.apiKey}}"
+    },
+    "response": {
+        "error": {
+            "message": "[{{statusCode}}] {{if(body.error, body.error, if(body.message, body.message, 'Unexpected error from the Bolten API'))}}"
+        }
+    },
+    "log": {
+        "sanitize": [
+            "request.headers.authorization"
+        ]
+    }
+}

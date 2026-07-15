@@ -1,0 +1,19 @@
+[
+    {
+        "name": "contactId",
+        "type": "text",
+        "label": "Contact ID",
+        "required": true
+    },
+    {
+        "name": "attributes",
+        "type": "array",
+        "label": "Attributes",
+        "required": true,
+        "help": "Only the attributes provided here are updated. Keys must match the field names configured in the Bolten component.",
+        "spec": [
+            { "name": "key", "type": "text", "label": "Key", "required": true },
+            { "name": "value", "type": "text", "label": "Value" }
+        ]
+    }
+]

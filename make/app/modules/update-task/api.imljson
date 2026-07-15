@@ -1,0 +1,13 @@
+{
+    "url": "/kanban/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/tasks/{{parameters.taskId}}",
+    "method": "PUT",
+    "body": {
+        "state": "{{parameters.state}}",
+        "title": "{{if(parameters.title, parameters.title, undefined)}}",
+        "description": "{{if(parameters.description, parameters.description, undefined)}}",
+        "scheduled_to": "{{if(parameters.scheduledTo, parameters.scheduledTo, undefined)}}"
+    },
+    "response": {
+        "output": "{{body}}"
+    }
+}

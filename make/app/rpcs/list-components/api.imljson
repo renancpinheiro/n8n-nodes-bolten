@@ -1,0 +1,11 @@
+{
+    "url": "/clients/api/v1/projects/{{parameters.projectId}}/components",
+    "method": "GET",
+    "response": {
+        "iterate": "{{body}}",
+        "output": {
+            "label": "{{item.name}}",
+            "value": "{{item.id}}"
+        }
+    }
+}

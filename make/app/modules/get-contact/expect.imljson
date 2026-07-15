@@ -1,0 +1,8 @@
+[
+    {
+        "name": "contactId",
+        "type": "text",
+        "label": "Contact ID",
+        "required": true
+    }
+]

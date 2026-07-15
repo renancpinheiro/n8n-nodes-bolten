@@ -1,0 +1,10 @@
+{
+    "url": "/kanban/api/v1/{{parameters.componentId}}/opportunities",
+    "method": "POST",
+    "body": {
+        "attributes": "{{toCollection(parameters.attributes, 'key', 'value')}}"
+    },
+    "response": {
+        "output": "{{body}}"
+    }
+}

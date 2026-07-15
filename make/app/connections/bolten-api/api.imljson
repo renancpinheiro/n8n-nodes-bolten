@@ -1,0 +1,17 @@
+{
+    "url": "https://app.bolten.io/clients/api/v1/projects",
+    "method": "GET",
+    "headers": {
+        "authorization": "Bearer {{parameters.apiKey}}"
+    },
+    "response": {
+        "error": {
+            "message": "[{{statusCode}}] Invalid API key. Generate a key in Bolten under Settings › Advanced Settings › API."
+        }
+    },
+    "log": {
+        "sanitize": [
+            "request.headers.authorization"
+        ]
+    }
+}

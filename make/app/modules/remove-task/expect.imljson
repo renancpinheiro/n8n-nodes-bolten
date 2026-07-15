@@ -1,0 +1,14 @@
+[
+    {
+        "name": "opportunityId",
+        "type": "text",
+        "label": "Opportunity ID",
+        "required": true
+    },
+    {
+        "name": "taskId",
+        "type": "text",
+        "label": "Task ID",
+        "required": true
+    }
+]

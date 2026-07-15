@@ -1,0 +1,9 @@
+[
+    {
+        "name": "projectId",
+        "type": "select",
+        "label": "Project",
+        "required": true,
+        "options": "rpc://listProjects"
+    }
+]

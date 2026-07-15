@@ -1,0 +1,13 @@
+[
+    {
+        "name": "attributes",
+        "type": "array",
+        "label": "Attributes",
+        "required": true,
+        "help": "Attribute keys must match the field names configured in the Bolten kanban component.",
+        "spec": [
+            { "name": "key", "type": "text", "label": "Key", "required": true },
+            { "name": "value", "type": "text", "label": "Value" }
+        ]
+    }
+]

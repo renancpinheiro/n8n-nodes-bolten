@@ -1,0 +1,7 @@
+{
+    "url": "/clients/api/v1/projects/{{parameters.projectId}}/components",
+    "method": "GET",
+    "response": {
+        "output": "{{body}}"
+    }
+}

@@ -1,0 +1,44 @@
+[
+    {
+        "name": "opportunityId",
+        "type": "text",
+        "label": "Opportunity ID",
+        "required": true
+    },
+    {
+        "name": "taskId",
+        "type": "text",
+        "label": "Task ID",
+        "required": true
+    },
+    {
+        "name": "state",
+        "type": "select",
+        "label": "State",
+        "required": true,
+        "default": "to_do",
+        "options": [
+            { "label": "To Do", "value": "to_do" },
+            { "label": "Doing", "value": "doing" },
+            { "label": "Done", "value": "done" }
+        ]
+    },
+    {
+        "name": "title",
+        "type": "text",
+        "label": "Title",
+        "required": false
+    },
+    {
+        "name": "description",
+        "type": "text",
+        "label": "Description",
+        "required": false
+    },
+    {
+        "name": "scheduledTo",
+        "type": "date",
+        "label": "Scheduled To",
+        "required": false
+    }
+]

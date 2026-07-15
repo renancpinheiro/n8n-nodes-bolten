@@ -1,0 +1,34 @@
+[
+    {
+        "name": "opportunityId",
+        "type": "text",
+        "label": "Opportunity ID",
+        "required": true
+    },
+    {
+        "name": "itemId",
+        "type": "text",
+        "label": "Product Item ID",
+        "required": true,
+        "help": "ID of the product line item on the opportunity (not the product ID)."
+    },
+    {
+        "name": "quantity",
+        "type": "uinteger",
+        "label": "Quantity",
+        "required": true
+    },
+    {
+        "name": "productId",
+        "type": "text",
+        "label": "Product ID",
+        "required": false,
+        "help": "Provide to replace the product on this line item."
+    },
+    {
+        "name": "finalPrice",
+        "type": "number",
+        "label": "Final Price",
+        "required": false
+    }
+]

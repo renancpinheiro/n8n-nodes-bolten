@@ -1,5 +1,5 @@
 {
-    "url": "/kanban/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/tasks/{{parameters.taskId}}",
+    "url": "/kanban/api/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/tasks/{{parameters.taskId}}",
     "method": "DELETE",
     "response": {
         "output": "{{body}}"

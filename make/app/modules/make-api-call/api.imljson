@@ -1,7 +1,9 @@
 {
     "url": "{{parameters.url}}",
     "method": "{{parameters.method}}",
-    "headers": "{{toCollection(parameters.headers, 'key', 'value')}}",
+    "headers": {
+        "authorization": "Bearer {{connection.apiKey}}"
+    },
     "qs": "{{toCollection(parameters.qs, 'key', 'value')}}",
     "body": "{{parameters.body}}",
     "response": {

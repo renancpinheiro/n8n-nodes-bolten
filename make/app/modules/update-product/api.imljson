@@ -1,5 +1,5 @@
 {
-    "url": "/kanban/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/products/{{parameters.itemId}}",
+    "url": "/kanban/api/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/products/{{parameters.itemId}}",
     "method": "PUT",
     "body": {
         "quantity": "{{parameters.quantity}}",

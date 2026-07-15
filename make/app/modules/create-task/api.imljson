@@ -1,5 +1,5 @@
 {
-    "url": "/kanban/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/tasks",
+    "url": "/kanban/api/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/tasks",
     "method": "POST",
     "body": {
         "title": "{{parameters.title}}",

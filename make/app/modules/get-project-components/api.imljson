@@ -2,7 +2,6 @@
     "url": "/clients/api/v1/projects/{{parameters.projectId}}/components",
     "method": "GET",
     "response": {
-        "iterate": "{{body.items}}",
-        "output": "{{item}}"
+        "output": "{{body}}"
     }
 }

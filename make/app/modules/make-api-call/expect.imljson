@@ -21,16 +21,6 @@
         ]
     },
     {
-        "name": "headers",
-        "type": "array",
-        "label": "Headers",
-        "required": false,
-        "spec": [
-            { "name": "key", "type": "text", "label": "Key", "required": true },
-            { "name": "value", "type": "text", "label": "Value" }
-        ]
-    },
-    {
         "name": "qs",
         "type": "array",
         "label": "Query String",

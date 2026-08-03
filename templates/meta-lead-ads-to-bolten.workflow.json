@@ -1,0 +1,152 @@
+{
+  "name": "Meta Lead Ads → Bolten (Contato + Oportunidade)",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## 🚀 Meta Lead Ads → Bolten\n\nTemplate para receber leads de formulário do Facebook/Instagram (Meta Lead Ads) e criar automaticamente **Contato + Oportunidade** na Bolten, já associados.\n\n**Fluxo:** Novo lead → Mapear campos → Criar contato → Criar oportunidade → Associar.\n\n### Passo a passo (faça após importar)\n\n1. **Nó \"Novo lead (Facebook)\"** → crie/conecte a credencial *Facebook Lead Ads OAuth2* e escolha a **Página** e o **Formulário**. Deixe *Simplify Output* **ligado** (padrão).\n2. **Credencial \"Bolten API\"** → API Key da Bolten (`Authorization: Bearer <apiKey>`). Vincule nos 3 nós Bolten.\n3. **Component IDs** → nos nós Bolten, troque:\n   - `SEU_COMPONENT_ID_DE_CONTATOS` = componente de **Contatos**\n   - `SEU_COMPONENT_ID_DO_KANBAN` = componente de **Kanban/Oportunidades**\n   (Dica: use `Get Schema` no nó Bolten pra ver as chaves de atributo do seu componente.)\n4. **Nó \"Mapear campos\"** → ajuste as chaves conforme o seu formulário e o seu componente (veja o sticky ao lado).\n5. **Ative** o workflow e envie um lead de teste.",
+        "height": 420,
+        "width": 460,
+        "color": 4
+      },
+      "id": "11111111-1111-4111-8111-111111111111",
+      "name": "Instruções (LEIA)",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-40, 20]
+    },
+    {
+      "parameters": {
+        "content": "### 🧭 Mapear campos\n\nCom *Simplify Output* ligado, a Meta entrega os campos em **`$json.data.<nome_do_campo>`**.\n\nCampos padrão da Meta:\n- `full_name`\n- `email`\n- `phone_number` (vem em E.164, ex: `+5511...`)\n\nPara **perguntas personalizadas** do formulário, o nome do campo é o texto da pergunta normalizado (minúsculas/underscore). Troque `SUBSTITUA_pelo_nome_do_campo` pelo nome real.\n\n> Se você **desligar** o Simplify Output, os campos passam a vir no array cru `$json.field_data` (`{name, values}`) — aí ajuste as expressões.",
+        "height": 420,
+        "width": 380,
+        "color": 5
+      },
+      "id": "22222222-2222-4222-8222-222222222222",
+      "name": "Nota: mapeamento",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [440, 20]
+    },
+    {
+      "parameters": {
+        "event": "newLead",
+        "page": { "__rl": true, "mode": "list", "value": "" },
+        "form": { "__rl": true, "mode": "list", "value": "" },
+        "options": { "simplifyOutput": true }
+      },
+      "id": "33333333-3333-4333-8333-333333333333",
+      "name": "Novo lead (Facebook)",
+      "type": "n8n-nodes-base.facebookLeadAdsTrigger",
+      "typeVersion": 1,
+      "position": [40, 520]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "map-nome",
+              "name": "nome",
+              "value": "={{ ($json.data.full_name || '').trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "map-email",
+              "name": "email",
+              "value": "={{ ($json.data.email || '').toLowerCase().trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "map-telefone",
+              "name": "telefone",
+              "value": "={{ $json.data.phone_number }}",
+              "type": "string"
+            },
+            {
+              "id": "map-custom",
+              "name": "campo_personalizado",
+              "value": "={{ $json.data.SUBSTITUA_pelo_nome_do_campo }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "44444444-4444-4444-8444-444444444444",
+      "name": "Mapear campos",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [280, 520]
+    },
+    {
+      "parameters": {
+        "resource": "contact",
+        "operation": "create",
+        "componentId": "SEU_COMPONENT_ID_DE_CONTATOS",
+        "jsonMode": false,
+        "attributesUi": {
+          "attributeValues": [
+            { "key": "name", "value": "={{ $('Mapear campos').item.json.nome }}" },
+            { "key": "email", "value": "={{ $('Mapear campos').item.json.email }}" },
+            { "key": "phone", "value": "={{ $('Mapear campos').item.json.telefone }}" }
+          ]
+        }
+      },
+      "id": "55555555-5555-4555-8555-555555555555",
+      "name": "Criar contato na Bolten",
+      "type": "n8n-nodes-bolten.bolten",
+      "typeVersion": 1,
+      "position": [520, 520]
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "operation": "create",
+        "componentId": "SEU_COMPONENT_ID_DO_KANBAN",
+        "jsonMode": false,
+        "attributesUi": {
+          "attributeValues": [
+            { "key": "name", "value": "={{ $('Mapear campos').item.json.nome }}" }
+          ]
+        }
+      },
+      "id": "66666666-6666-4666-8666-666666666666",
+      "name": "Criar oportunidade na Bolten",
+      "type": "n8n-nodes-bolten.bolten",
+      "typeVersion": 1,
+      "position": [760, 520]
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "operation": "associateContact",
+        "componentId": "SEU_COMPONENT_ID_DO_KANBAN",
+        "opportunityId": "={{ $('Criar oportunidade na Bolten').item.json.id }}",
+        "associateContactId": "={{ $('Criar contato na Bolten').item.json.id }}"
+      },
+      "id": "77777777-7777-4777-8777-777777777777",
+      "name": "Associar contato à oportunidade",
+      "type": "n8n-nodes-bolten.bolten",
+      "typeVersion": 1,
+      "position": [1000, 520]
+    }
+  ],
+  "connections": {
+    "Novo lead (Facebook)": {
+      "main": [[{ "node": "Mapear campos", "type": "main", "index": 0 }]]
+    },
+    "Mapear campos": {
+      "main": [[{ "node": "Criar contato na Bolten", "type": "main", "index": 0 }]]
+    },
+    "Criar contato na Bolten": {
+      "main": [[{ "node": "Criar oportunidade na Bolten", "type": "main", "index": 0 }]]
+    },
+    "Criar oportunidade na Bolten": {
+      "main": [[{ "node": "Associar contato à oportunidade", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {},
+  "meta": {},
+  "active": false
+}

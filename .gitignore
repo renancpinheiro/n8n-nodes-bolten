@@ -1,3 +1,6 @@
 node_modules/
 dist/
 *.js.map
+
+# Template deliverable bundles (rebuilt from JSON + PDF)
+templates/*.zip

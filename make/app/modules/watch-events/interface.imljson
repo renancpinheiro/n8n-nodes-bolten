@@ -1,13 +1,23 @@
 [
     {
+        "name": "id",
+        "type": "text",
+        "label": "Event ID"
+    },
+    {
+        "name": "created_at",
+        "type": "date",
+        "label": "Created at"
+    },
+    {
         "name": "type",
         "type": "text",
-        "label": "Event Type"
+        "label": "Event type"
     },
     {
         "name": "data",
         "type": "collection",
-        "label": "Event Data",
+        "label": "Event data",
         "spec": []
     }
 ]

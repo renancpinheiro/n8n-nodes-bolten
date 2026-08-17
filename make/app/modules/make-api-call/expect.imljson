@@ -4,7 +4,7 @@
         "type": "text",
         "label": "URL",
         "required": true,
-        "help": "Path relative to `https://app.bolten.io`, e.g. `/clients/api/v1/projects`."
+        "help": "Path relative to `https://app.bolten.io`, without a leading slash. For example: `clients/api/v1/projects`."
     },
     {
         "name": "method",
@@ -13,21 +13,46 @@
         "required": true,
         "default": "GET",
         "options": [
-            { "label": "GET", "value": "GET" },
-            { "label": "POST", "value": "POST" },
-            { "label": "PATCH", "value": "PATCH" },
-            { "label": "PUT", "value": "PUT" },
-            { "label": "DELETE", "value": "DELETE" }
-        ]
+            {
+                "label": "GET",
+                "value": "GET"
+            },
+            {
+                "label": "POST",
+                "value": "POST"
+            },
+            {
+                "label": "PATCH",
+                "value": "PATCH"
+            },
+            {
+                "label": "PUT",
+                "value": "PUT"
+            },
+            {
+                "label": "DELETE",
+                "value": "DELETE"
+            }
+        ],
+        "mode": "edit"
     },
     {
         "name": "qs",
         "type": "array",
-        "label": "Query String",
+        "label": "Query string",
         "required": false,
         "spec": [
-            { "name": "key", "type": "text", "label": "Key", "required": true },
-            { "name": "value", "type": "text", "label": "Value" }
+            {
+                "name": "key",
+                "type": "text",
+                "label": "Key",
+                "required": true
+            },
+            {
+                "name": "value",
+                "type": "text",
+                "label": "Value"
+            }
         ]
     },
     {

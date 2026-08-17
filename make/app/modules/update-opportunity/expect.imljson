@@ -12,8 +12,17 @@
         "required": true,
         "help": "Only the attributes provided here are updated. Keys must match the field names configured in the Bolten kanban component.",
         "spec": [
-            { "name": "key", "type": "text", "label": "Key", "required": true },
-            { "name": "value", "type": "text", "label": "Value" }
+            {
+                "name": "key",
+                "type": "text",
+                "label": "Key",
+                "required": true
+            },
+            {
+                "name": "value",
+                "type": "text",
+                "label": "Value"
+            }
         ]
     }
 ]

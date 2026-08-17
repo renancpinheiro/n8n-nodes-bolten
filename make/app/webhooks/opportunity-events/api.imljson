@@ -7,6 +7,5 @@
         }
     },
     "condition": "{{if(length(parameters.events) > 0, contains(parameters.events, body.type), true)}}",
-    "iterate": "{{[body]}}",
-    "output": "{{item}}"
+    "output": "{{body}}"
 }

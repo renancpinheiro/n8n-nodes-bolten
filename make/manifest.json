@@ -7,37 +7,195 @@
     "webhooks": [
         {
             "name": "opportunity-events",
-            "label": "Opportunity Events",
+            "label": "Opportunity events",
             "type": "dedicated",
             "connection": null
         }
     ],
     "rpcs": [
-        { "name": "listProjects", "label": "List Projects", "dir": "list-projects" },
-        { "name": "listComponents", "label": "List Components", "dir": "list-components" }
+        {
+            "name": "listProjects",
+            "label": "List projects",
+            "dir": "list-projects"
+        },
+        {
+            "name": "listComponents",
+            "label": "List components",
+            "dir": "list-components"
+        }
     ],
     "modules": [
-        { "dir": "list-projects", "name": "listProjects", "label": "List Projects", "description": "Returns the projects the API key has access to.", "type": "search" },
-        { "dir": "get-project-components", "name": "getProjectComponents", "label": "Get Project Components", "description": "Returns the components (modules) available in a project.", "type": "action", "crud": "read" },
-        { "dir": "list-contacts", "name": "listContacts", "label": "List Contacts", "description": "Returns contacts from a contact component.", "type": "search" },
-        { "dir": "get-contact", "name": "getContact", "label": "Get a Contact", "description": "Retrieves a single contact by ID.", "type": "action", "crud": "read" },
-        { "dir": "create-contact", "name": "createContact", "label": "Create a Contact", "description": "Creates a new contact.", "type": "action", "crud": "create" },
-        { "dir": "update-contact", "name": "updateContact", "label": "Update a Contact", "description": "Updates attributes of an existing contact.", "type": "action", "crud": "update" },
-        { "dir": "delete-contact", "name": "deleteContact", "label": "Delete a Contact", "description": "Deletes a contact by ID.", "type": "action", "crud": "delete" },
-        { "dir": "list-opportunities", "name": "listOpportunities", "label": "List Opportunities", "description": "Returns opportunities from a kanban component.", "type": "search" },
-        { "dir": "get-opportunity", "name": "getOpportunity", "label": "Get an Opportunity", "description": "Retrieves a single opportunity by ID.", "type": "action", "crud": "read" },
-        { "dir": "create-opportunity", "name": "createOpportunity", "label": "Create an Opportunity", "description": "Creates a new opportunity.", "type": "action", "crud": "create" },
-        { "dir": "update-opportunity", "name": "updateOpportunity", "label": "Update an Opportunity", "description": "Updates attributes of an existing opportunity.", "type": "action", "crud": "update" },
-        { "dir": "delete-opportunity", "name": "deleteOpportunity", "label": "Delete an Opportunity", "description": "Deletes an opportunity by ID.", "type": "action", "crud": "delete" },
-        { "dir": "associate-contact", "name": "associateContact", "label": "Associate Contact to Opportunity", "description": "Links a contact to an opportunity.", "type": "action", "crud": "update" },
-        { "dir": "dissociate-contact", "name": "dissociateContact", "label": "Dissociate Contact from Opportunity", "description": "Removes the linked contact from an opportunity.", "type": "action", "crud": "update" },
-        { "dir": "add-product", "name": "addProduct", "label": "Add Product to Opportunity", "description": "Adds a product line item to an opportunity.", "type": "action", "crud": "create" },
-        { "dir": "update-product", "name": "updateProduct", "label": "Update Opportunity Product", "description": "Updates a product line item on an opportunity.", "type": "action", "crud": "update" },
-        { "dir": "remove-product", "name": "removeProduct", "label": "Remove Opportunity Product", "description": "Removes a product line item from an opportunity.", "type": "action", "crud": "delete" },
-        { "dir": "create-task", "name": "createTask", "label": "Create Task on Opportunity", "description": "Creates a task on an opportunity.", "type": "action", "crud": "create" },
-        { "dir": "update-task", "name": "updateTask", "label": "Update Opportunity Task", "description": "Updates a task on an opportunity.", "type": "action", "crud": "update" },
-        { "dir": "remove-task", "name": "removeTask", "label": "Remove Opportunity Task", "description": "Removes a task from an opportunity.", "type": "action", "crud": "delete" },
-        { "dir": "watch-events", "name": "watchEvents", "label": "Watch Opportunity Events", "description": "Triggers instantly when Bolten sends an opportunity webhook event.", "type": "instant_trigger", "webhook": "opportunity-events" },
-        { "dir": "make-api-call", "name": "makeApiCall", "label": "Make an API Call", "description": "Performs an arbitrary authorized API call against the Bolten API.", "type": "universal" }
+        {
+            "dir": "list-projects",
+            "name": "listProjects",
+            "label": "List projects",
+            "description": "Returns the projects the API key has access to.",
+            "type": "search"
+        },
+        {
+            "dir": "get-project-components",
+            "name": "getProjectComponents",
+            "label": "Get project components",
+            "description": "Returns the components (modules) available in a project.",
+            "type": "action",
+            "crud": "read"
+        },
+        {
+            "dir": "list-contacts",
+            "name": "listContacts",
+            "label": "List contacts",
+            "description": "Returns contacts from a contact component.",
+            "type": "search"
+        },
+        {
+            "dir": "get-contact",
+            "name": "getContact",
+            "label": "Get a contact",
+            "description": "Retrieves a single contact by ID.",
+            "type": "action",
+            "crud": "read"
+        },
+        {
+            "dir": "create-contact",
+            "name": "createContact",
+            "label": "Create a contact",
+            "description": "Creates a new contact.",
+            "type": "action",
+            "crud": "create"
+        },
+        {
+            "dir": "update-contact",
+            "name": "updateContact",
+            "label": "Update a contact",
+            "description": "Updates attributes of an existing contact.",
+            "type": "action",
+            "crud": "update"
+        },
+        {
+            "dir": "delete-contact",
+            "name": "deleteContact",
+            "label": "Delete a contact",
+            "description": "Deletes a contact by ID.",
+            "type": "action",
+            "crud": "delete"
+        },
+        {
+            "dir": "list-opportunities",
+            "name": "listOpportunities",
+            "label": "List opportunities",
+            "description": "Returns opportunities from a kanban component.",
+            "type": "search"
+        },
+        {
+            "dir": "get-opportunity",
+            "name": "getOpportunity",
+            "label": "Get an opportunity",
+            "description": "Retrieves a single opportunity by ID.",
+            "type": "action",
+            "crud": "read"
+        },
+        {
+            "dir": "create-opportunity",
+            "name": "createOpportunity",
+            "label": "Create an opportunity",
+            "description": "Creates a new opportunity.",
+            "type": "action",
+            "crud": "create"
+        },
+        {
+            "dir": "update-opportunity",
+            "name": "updateOpportunity",
+            "label": "Update an opportunity",
+            "description": "Updates attributes of an existing opportunity.",
+            "type": "action",
+            "crud": "update"
+        },
+        {
+            "dir": "delete-opportunity",
+            "name": "deleteOpportunity",
+            "label": "Delete an opportunity",
+            "description": "Deletes an opportunity by ID.",
+            "type": "action",
+            "crud": "delete"
+        },
+        {
+            "dir": "associate-contact",
+            "name": "associateContact",
+            "label": "Associate contact to opportunity",
+            "description": "Links a contact to an opportunity.",
+            "type": "action",
+            "crud": "update"
+        },
+        {
+            "dir": "dissociate-contact",
+            "name": "dissociateContact",
+            "label": "Dissociate contact from opportunity",
+            "description": "Removes the linked contact from an opportunity.",
+            "type": "action",
+            "crud": "update"
+        },
+        {
+            "dir": "add-product",
+            "name": "addProduct",
+            "label": "Add product to opportunity",
+            "description": "Adds a product line item to an opportunity.",
+            "type": "action",
+            "crud": "create"
+        },
+        {
+            "dir": "update-product",
+            "name": "updateProduct",
+            "label": "Update opportunity product",
+            "description": "Updates a product line item on an opportunity.",
+            "type": "action",
+            "crud": "update"
+        },
+        {
+            "dir": "remove-product",
+            "name": "removeProduct",
+            "label": "Remove opportunity product",
+            "description": "Removes a product line item from an opportunity.",
+            "type": "action",
+            "crud": "delete"
+        },
+        {
+            "dir": "create-task",
+            "name": "createTask",
+            "label": "Create task on opportunity",
+            "description": "Creates a task on an opportunity.",
+            "type": "action",
+            "crud": "create"
+        },
+        {
+            "dir": "update-task",
+            "name": "updateTask",
+            "label": "Update opportunity task",
+            "description": "Updates a task on an opportunity.",
+            "type": "action",
+            "crud": "update"
+        },
+        {
+            "dir": "remove-task",
+            "name": "removeTask",
+            "label": "Remove opportunity task",
+            "description": "Removes a task from an opportunity.",
+            "type": "action",
+            "crud": "delete"
+        },
+        {
+            "dir": "watch-events",
+            "name": "watchEvents",
+            "label": "Watch opportunity events",
+            "description": "Triggers instantly when Bolten sends an opportunity webhook event.",
+            "type": "instant_trigger",
+            "webhook": "opportunity-events"
+        },
+        {
+            "dir": "make-api-call",
+            "name": "makeApiCall",
+            "label": "Make an API call",
+            "description": "Performs an arbitrary authorized API call against the Bolten API.",
+            "type": "universal"
+        }
     ]
 }

@@ -10,11 +10,13 @@
                 {
                     "name": "componentId",
                     "type": "select",
-                    "label": "Kanban Component",
+                    "label": "Kanban component",
                     "required": true,
-                    "options": "rpc://listComponents?category=opportunity_management"
+                    "options": "rpc://listComponents?category=opportunity_management",
+                    "mode": "edit"
                 }
             ]
-        }
+        },
+        "mode": "edit"
     }
 ]

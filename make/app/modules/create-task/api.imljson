@@ -8,6 +8,8 @@
         "scheduled_to": "{{if(parameters.scheduledTo, parameters.scheduledTo, undefined)}}"
     },
     "response": {
-        "output": "{{body}}"
+        "output": {
+            "result": "{{body}}"
+        }
     }
 }

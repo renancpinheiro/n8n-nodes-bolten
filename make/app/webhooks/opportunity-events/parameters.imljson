@@ -6,11 +6,24 @@
         "multiple": true,
         "required": false,
         "options": [
-            { "label": "Opportunity Created", "value": "opportunity.created" },
-            { "label": "Opportunity Won", "value": "opportunity.won" },
-            { "label": "Opportunity Lost", "value": "opportunity.lost" },
-            { "label": "Opportunity Transitioned", "value": "opportunity.transitioned" }
+            {
+                "label": "Opportunity Created",
+                "value": "opportunity.created"
+            },
+            {
+                "label": "Opportunity Won",
+                "value": "opportunity.won"
+            },
+            {
+                "label": "Opportunity Lost",
+                "value": "opportunity.lost"
+            },
+            {
+                "label": "Opportunity Transitioned",
+                "value": "opportunity.transitioned"
+            }
         ],
-        "help": "Leave empty to receive all events. Copy the webhook address shown by Make and register it in Bolten under **Settings › Integrations › Webhooks**."
+        "help": "Leave empty to receive all events. Copy the webhook address shown by Make and register it in Bolten under **Settings › Integrations › Webhooks**.",
+        "mode": "edit"
     }
 ]

@@ -1,0 +1,28 @@
+[
+    {
+        "name": "id",
+        "type": "text",
+        "label": "Opportunity ID"
+    },
+    {
+        "name": "created_at",
+        "type": "date",
+        "label": "Created at"
+    },
+    {
+        "name": "updated_at",
+        "type": "date",
+        "label": "Updated at"
+    },
+    {
+        "name": "discarded_at",
+        "type": "date",
+        "label": "Discarded at"
+    },
+    {
+        "name": "attributes",
+        "type": "collection",
+        "label": "Attributes",
+        "spec": []
+    }
+]

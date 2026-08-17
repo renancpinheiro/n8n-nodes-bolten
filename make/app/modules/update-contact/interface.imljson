@@ -1,0 +1,28 @@
+[
+    {
+        "name": "id",
+        "type": "text",
+        "label": "Contact ID"
+    },
+    {
+        "name": "created_at",
+        "type": "date",
+        "label": "Created at"
+    },
+    {
+        "name": "updated_at",
+        "type": "date",
+        "label": "Updated at"
+    },
+    {
+        "name": "created_by",
+        "type": "text",
+        "label": "Created by"
+    },
+    {
+        "name": "attributes",
+        "type": "collection",
+        "label": "Attributes",
+        "spec": []
+    }
+]

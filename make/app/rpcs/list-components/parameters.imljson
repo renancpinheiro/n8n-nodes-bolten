@@ -8,7 +8,7 @@
     {
         "name": "category",
         "type": "text",
-        "label": "Component Category",
+        "label": "Component category",
         "required": false,
         "help": "Optional filter, e.g. contact_management or opportunity_management. Passed via the rpc:// query string."
     }

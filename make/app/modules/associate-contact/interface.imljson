@@ -1,0 +1,8 @@
+[
+    {
+        "name": "result",
+        "type": "collection",
+        "label": "Result",
+        "spec": []
+    }
+]

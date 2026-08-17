@@ -5,6 +5,8 @@
         "id": "{{parameters.contactId}}"
     },
     "response": {
-        "output": "{{body}}"
+        "output": {
+            "result": "{{body}}"
+        }
     }
 }

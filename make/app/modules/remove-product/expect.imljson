@@ -8,7 +8,7 @@
     {
         "name": "itemId",
         "type": "text",
-        "label": "Product Item ID",
+        "label": "Product item ID",
         "required": true
     }
 ]

@@ -1,9 +1,6 @@
 {
-    "url": "{{parameters.url}}",
+    "url": "https://app.bolten.io/{{parameters.url}}",
     "method": "{{parameters.method}}",
-    "headers": {
-        "authorization": "Bearer {{connection.apiKey}}"
-    },
     "qs": "{{toCollection(parameters.qs, 'key', 'value')}}",
     "body": "{{parameters.body}}",
     "response": {

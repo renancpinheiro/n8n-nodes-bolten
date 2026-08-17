@@ -8,7 +8,7 @@
     {
         "name": "itemId",
         "type": "text",
-        "label": "Product Item ID",
+        "label": "Product item ID",
         "required": true,
         "help": "ID of the product line item on the opportunity (not the product ID)."
     },
@@ -28,7 +28,7 @@
     {
         "name": "finalPrice",
         "type": "number",
-        "label": "Final Price",
+        "label": "Final price",
         "required": false
     }
 ]

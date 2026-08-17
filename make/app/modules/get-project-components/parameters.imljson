@@ -4,6 +4,7 @@
         "type": "select",
         "label": "Project",
         "required": true,
-        "options": "rpc://listProjects"
+        "options": "rpc://listProjects",
+        "mode": "edit"
     }
 ]

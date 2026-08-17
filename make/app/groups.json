@@ -1,0 +1,9 @@
+[
+    { "label": "Events", "modules": ["watchEvents"] },
+    { "label": "Projects", "modules": ["listProjects", "getProjectComponents"] },
+    { "label": "Contacts", "modules": ["listContacts", "getContact", "createContact", "updateContact", "deleteContact"] },
+    { "label": "Opportunities", "modules": ["listOpportunities", "getOpportunity", "createOpportunity", "updateOpportunity", "deleteOpportunity", "associateContact", "dissociateContact"] },
+    { "label": "Products", "modules": ["addProduct", "updateProduct", "removeProduct"] },
+    { "label": "Tasks", "modules": ["createTask", "updateTask", "removeTask"] },
+    { "label": "Other", "modules": ["makeApiCall"] }
+]

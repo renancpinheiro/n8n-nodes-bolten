@@ -1,11 +1,22 @@
 {
     "url": "/clients/api/v1/projects",
     "method": "GET",
+    "qs": {
+        "page": 1,
+        "limit": 100
+    },
     "response": {
         "iterate": "{{body.items}}",
         "output": {
             "label": "{{item.name}}",
             "value": "{{item.id}}"
-        }
+        },
+        "limit": 300
+    },
+    "pagination": {
+        "qs": {
+            "page": "{{pagination.page}}"
+        },
+        "condition": "{{length(body.items) > 0}}"
     }
 }

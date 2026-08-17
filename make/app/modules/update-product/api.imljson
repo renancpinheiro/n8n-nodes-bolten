@@ -7,6 +7,8 @@
         "final_price": "{{if(parameters.finalPrice > 0, parameters.finalPrice, undefined)}}"
     },
     "response": {
-        "output": "{{body}}"
+        "output": {
+            "result": "{{body}}"
+        }
     }
 }

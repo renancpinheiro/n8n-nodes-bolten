@@ -2,6 +2,8 @@
     "url": "/kanban/api/v1/{{parameters.componentId}}/opportunities/{{parameters.opportunityId}}/contact",
     "method": "DELETE",
     "response": {
-        "output": "{{body}}"
+        "output": {
+            "result": "{{body}}"
+        }
     }
 }

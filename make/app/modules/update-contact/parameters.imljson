@@ -10,11 +10,13 @@
                 {
                     "name": "componentId",
                     "type": "select",
-                    "label": "Contact Component",
+                    "label": "Contact component",
                     "required": true,
-                    "options": "rpc://listComponents?category=contact_management"
+                    "options": "rpc://listComponents?category=contact_management",
+                    "mode": "edit"
                 }
             ]
-        }
+        },
+        "mode": "edit"
     }
 ]
